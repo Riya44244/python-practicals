@@ -1,0 +1,13 @@
+s = input("Enter a string: ")
+
+print("Length:", len(s))
+print("Uppercase:", s.upper())
+print("Lowercase:", s.lower())
+print("Title case:", s.title())
+print("Reversed:", s[::-1])
+print("First character:", s[0] if s else "")
+print("Last character:", s[-1] if s else "")
+print("Number of vowels:", sum(1 for c in s.lower() if c in "aeiou"))
+print("Number of words:", len(s.split()))
+print("Palindrome:", s.lower() == s.lower()[::-1])
+print("After removing spaces:", s.replace(" ", ""))
