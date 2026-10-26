@@ -1,14 +1,10 @@
-n = int(input("Enter a number: "))
+# Practical 10: Dictionary of cubes (keys 1 to 5)
 
-cubes = {}
-for i in range(1, n + 1):
-    cubes[i] = i ** 3
+def print_cubes():
+    d = {}
+    for i in range(1, 6):
+        d[i] = i ** 3
+    print(d)
 
-print("Dictionary of cubes:", cubes)
 
-# Same thing using dictionary comprehension
-cubes2 = {i: i ** 3 for i in range(1, n + 1)}
-print("Using comprehension:", cubes2)
-
-print("Keys:", list(cubes.keys()))
-print("Values:", list(cubes.values()))
+print_cubes()
