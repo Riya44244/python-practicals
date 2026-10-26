@@ -1,0 +1,5 @@
+Python is a popular programming language.
+It is easy to learn and read.
+Python supports object oriented programming.
+Files can be read and written easily.
+Practice makes a programmer perfect.
