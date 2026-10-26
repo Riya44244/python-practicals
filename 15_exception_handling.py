@@ -1,16 +1,20 @@
-def get_name():
-    name = input("Enter your name: ").strip()
-    if name == "":
-        raise ValueError("Name cannot be empty")
-    if not name.replace(" ", "").isalpha():
-        raise ValueError("Name must contain only letters")
-    return name
+# Practical 15: Exception handling for a name
+
+class InvalidNameError(Exception):
+    pass
+
+
+def check_name(name):
+    for ch in name:
+        if not (ch.isalpha() or ch == " "):
+            raise InvalidNameError("Name contains digits or special characters: '" + ch + "'")
+    if name.strip() == "":
+        raise InvalidNameError("Name cannot be empty")
 
 
 try:
-    name = get_name()
+    name = input("Enter your name: ")
+    check_name(name)
     print("Hello,", name)
-except ValueError as e:
+except InvalidNameError as e:
     print("Error:", e)
-finally:
-    print("Program finished.")
