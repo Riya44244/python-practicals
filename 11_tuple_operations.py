@@ -1,22 +1,27 @@
-t = (10, 20, 30, 40, 50, 20)
-print("Tuple:", t)
+# Practical 11: Tuple operations
+t1 = (1, 2, 5, 7, 9, 2, 4, 6, 8, 10)
+print("t1 =", t1)
 
-print("Length:", len(t))
-print("First element:", t[0])
-print("Last element:", t[-1])
-print("Slice t[1:4]:", t[1:4])
-print("Count of 20:", t.count(20))
-print("Index of 30:", t.index(30))
-print("Maximum:", max(t))
-print("Minimum:", min(t))
-print("Sum:", sum(t))
+# a. Print half of the values in one line and the other half in the next line
+mid = len(t1) // 2
+print("First half :", t1[:mid])
+print("Second half:", t1[mid:])
 
-t2 = (60, 70)
-print("Concatenation:", t + t2)
-print("Repetition:", t2 * 2)
-print("Is 30 in tuple?", 30 in t)
+# b. Another tuple with only the even numbers
+evens = tuple(x for x in t1 if x % 2 == 0)
+print("Even numbers tuple:", evens)
 
-# Tuples cannot be changed, so convert to list to modify
-lst = list(t)
-lst.append(99)
-print("Modified tuple:", tuple(lst))
+# c. Concatenate t2 with t1
+t2 = (11, 13, 15)
+t3 = t1 + t2
+print("After concatenation:", t3)
+
+
+# d. Return maximum and minimum value
+def max_min(t):
+    return max(t), min(t)
+
+
+maximum, minimum = max_min(t3)
+print("Maximum:", maximum)
+print("Minimum:", minimum)
