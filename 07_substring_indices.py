@@ -1,16 +1,21 @@
-text = input("Enter the main string: ")
-sub = input("Enter the substring to find: ")
+# Practical 7: Indices of all occurrences of a substring
 
-indices = []
-start = 0
-while True:
-    pos = text.find(sub, start)
-    if pos == -1:
-        break
-    indices.append(pos)
-    start = pos + 1
+def find_indices(main, sub):
+    indices = []
+    if sub == "":
+        return -1
+    start = 0
+    while True:
+        pos = main.find(sub, start)
+        if pos == -1:
+            break
+        indices.append(pos)
+        start = pos + 1
+    if len(indices) == 0:
+        return -1
+    return indices
 
-if indices:
-    print("Substring found at indices:", indices)
-else:
-    print("Substring not found")
+
+s1 = input("Enter first string: ")
+s2 = input("Enter second string: ")
+print(find_indices(s1, s2))
