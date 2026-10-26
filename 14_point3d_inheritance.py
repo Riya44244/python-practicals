@@ -1,3 +1,4 @@
+# Practical 14: Inheritance - 3D point
 import math
 
 
@@ -6,8 +7,11 @@ class Point2D:
         self.x = x
         self.y = y
 
-    def display(self):
-        print("Point is (", self.x, ",", self.y, ")")
+    def __str__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ")"
+
+    def distance(self, other):
+        return math.sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)
 
 
 class Point3D(Point2D):
@@ -15,13 +19,19 @@ class Point3D(Point2D):
         super().__init__(x, y)
         self.z = z
 
-    def display(self):
-        print("Point is (", self.x, ",", self.y, ",", self.z, ")")
+    def __str__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ", " + str(self.z) + ")"
 
-    def distance_from_origin(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
+    # Overridden method
+    def distance(self, other):
+        return math.sqrt((self.x - other.x) ** 2 +
+                         (self.y - other.y) ** 2 +
+                         (self.z - other.z) ** 2)
 
 
-p = Point3D(1, 2, 2)
-p.display()
-print("Distance from origin:", p.distance_from_origin())
+p1 = Point3D(1, 2, 3)
+p2 = Point3D(4, 6, 8)
+
+print("Point 1:", p1)
+print("Point 2:", p2)
+print("Distance between the points:", p1.distance(p2))
