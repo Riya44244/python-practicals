@@ -1,17 +1,19 @@
+# Practical 4: Character classification
+names = ["ZERO", "ONE", "TWO", "THREE", "FOUR",
+         "FIVE", "SIX", "SEVEN", "EIGHT", "NINE"]
+
 ch = input("Enter a single character: ")
 
 if len(ch) != 1:
     print("Please enter exactly one character")
 elif ch.isalpha():
-    if ch.lower() in "aeiou":
-        kind = "Vowel"
+    print(ch, "is a letter")
+    if ch.isupper():
+        print("It is uppercase")
     else:
-        kind = "Consonant"
-    case = "Uppercase" if ch.isupper() else "Lowercase"
-    print("It is an alphabet:", kind, "-", case)
+        print("It is lowercase")
 elif ch.isdigit():
-    print("It is a digit")
-elif ch.isspace():
-    print("It is a whitespace")
+    print(ch, "is a numeric digit")
+    print("Name:", names[int(ch)])
 else:
-    print("It is a special character")
+    print(ch, "is a special character")
