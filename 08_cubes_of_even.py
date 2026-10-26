@@ -1,10 +1,14 @@
-n = int(input("Enter the upper limit: "))
+# Practical 8: Cubes of even integers from a list (may have other types)
+lst = [1, 2, "hello", 4, 5.5, 6, 7, 8, "10", 10, 3.0, True]
+print("Input list:", lst)
 
-print("Cubes of even integers from 1 to", n)
-for i in range(1, n + 1):
-    if i % 2 == 0:
-        print(i, "->", i ** 3)
+# a. Using 'for' loop
+cubes1 = []
+for x in lst:
+    if type(x) == int and x % 2 == 0:
+        cubes1.append(x ** 3)
+print("Using for loop:", cubes1)
 
-# Same thing using a list
-cubes = [i ** 3 for i in range(1, n + 1) if i % 2 == 0]
-print("List of cubes:", cubes)
+# b. Using list comprehension
+cubes2 = [x ** 3 for x in lst if type(x) == int and x % 2 == 0]
+print("Using list comprehension:", cubes2)
